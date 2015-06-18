@@ -33,6 +33,11 @@ counts = count_nt(dna)
 for prob in lst:
     pGC = float(prob) / 2
     pAT = (1 - float(prob)) / 2
+    
+    # This would probably be better accomplished as:
+    #    probs.append((log((pAT**counts[0]), 10)) + (log((pGC**counts[1]), 10)))
+    # The above uses the logarithm multiplication-sum rule and could (probably)
+    #    get around any value-representation issues.
     p = (pAT**counts[0]) * (pGC**counts[1])
     probs.append(log(p, 10))
 
